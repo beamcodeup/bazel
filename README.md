@@ -1,1 +1,1 @@
-# bazel
+# my bazel template
