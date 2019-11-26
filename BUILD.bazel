@@ -9,20 +9,20 @@ buildifier(
 gazelle(name = "gazelle")
 
 go_library(
-    name = "go_default_library",
-    srcs = ["hello.go"],
+    name = "foo",
+    srcs = ["foo.go"],
     importpath = "github.com",
     visibility = ["//visibility:private"],
 )
 
 go_binary(
     name = "project",
-    embed = [":go_default_library"],
+    embed = [":foo"],
     visibility = ["//visibility:public"],
 )
 
 go_test(
-    name = "go_default_test",
-    srcs = ["hello_test.go"],
+    name = "foo_test",
+    srcs = ["foo_test.go"],
     embed = [":go_default_library"],
 )
