@@ -8,4 +8,4 @@ func Foo(n int) int {
         return o
 }
 
-func main() {}
+func main() { Foo (1) }
