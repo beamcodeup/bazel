@@ -1,1 +1,1 @@
-# my bazel template
+# My personal Bazel template

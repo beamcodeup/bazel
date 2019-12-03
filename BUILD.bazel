@@ -6,23 +6,30 @@ buildifier(
     name = "buildifier",
 )
 
+# gazelle:prefix github.com/beamcodeup/bazel
 gazelle(name = "gazelle")
 
 go_library(
     name = "foo",
     srcs = ["foo.go"],
-    importpath = "github.com",
+    importpath = "github.com/beamcodeup/bazel",
     visibility = ["//visibility:private"],
 )
 
 go_binary(
-    name = "project",
+    name = "foobin",
     embed = [":foo"],
     visibility = ["//visibility:public"],
 )
 
 go_test(
     name = "foo_test",
+    srcs = ["foo_test.go"],
+    embed = [":go_default_library"],
+)
+
+go_test(
+    name = "go_default_test",
     srcs = ["foo_test.go"],
     embed = [":go_default_library"],
 )
